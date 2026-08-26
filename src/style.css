@@ -247,17 +247,13 @@ nav.nav {
   min-width: 140px;
   padding: 0.25rem;
   list-style: none;
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(-4px);
-  transition: opacity 0.15s ease, transform 0.15s ease, visibility 0.15s, background-color 0.2s ease;
+  display: none;
+  transition: background-color 0.2s ease;
 }
 
 .nav__links>li:hover .nav__dropdown,
 .nav__links>li:focus-within .nav__dropdown {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
+  display: block;
 }
 
 .nav__dropdown button {
@@ -692,7 +688,9 @@ nav.nav {
 /* Responsive */
 
 @media (max-width: 640px) {
-
+  .nav--open .nav__dropdown {
+  display: block;
+}
   /* ---------- Nav ---------- */
   .nav {
     position: relative;
@@ -724,16 +722,17 @@ nav.nav {
 
   /* Dropdowns become inline in mobile overlay */
   .nav__dropdown {
-    position: static;
-    opacity: 1;
-    visibility: visible;
-    transform: none;
-    border: 0;
-    margin-top: 0.5rem;
-    padding: 0;
-    min-width: 0;
-    text-align: left;
-  }
+  position: static;
+  transform: none;
+  border: 0;
+  margin-top: 0.5rem;
+  padding: 0;
+  min-width: 0;
+  text-align: left;
+  display: none;
+}
+
+
 
   .nav__dropdown button {
     font-size: 0.95rem;
