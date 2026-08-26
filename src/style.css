@@ -1,11 +1,12 @@
 @font-face {
   font-family: 'Monocraft';
-  src: url('/Monocraft.ttf') format('truetype');
-  font-display: swap;
+  src: url('https://cdn.jsdelivr.net/gh/IdreesInc/Monocraft@main/dist/Monocraft-ttf/Monocraft.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
 }
 
 * {
-  font-family: Monocraft, monospace;
+  font-family: Monocraft, Miracode, monospace;
   margin: 0;
   padding: 0;
   border: 0;
