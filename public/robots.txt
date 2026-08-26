@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://aleixmine.github.io/sitemap.xml
+Sitemap: https://aleixmine.vercel.app/sitemap.xml
