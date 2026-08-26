@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>aleixmine</title>
+  <meta name="description" content="My blog">
+  <script>
+    (function () {
+      try {
+        var mode = localStorage.getItem("theme");
+        var dark = mode === "dark" ||
+          (mode !== "light" &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches);
+        document.documentElement.setAttribute("data-theme", dark ? "dark" : "light");
+      } catch (e) {
+      }
+    })();
+  </script>
+  <link rel="stylesheet" href="/src/style.css">
+  <script defer type="module" src="/src/main.ts"></script>
+</head>
+
+<body>
+  <nav class="nav" role="navigation">
+    <button class="nav__brand" data-href-page="main">aleixmine</button>
+
+    <button class="nav__toggle" aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <button class="theme-toggle" type="button" aria-label="Switch theme" title="Switch theme">
+      <svg class="theme-toggle__icon theme-toggle__icon--sun" viewBox="0 0 16 16" fill="currentColor"
+        aria-hidden="true">
+        <path
+          d="M7 1h2v1h-2zM7 2h2v1h-2zM3 3h2v1h-2zM11 3h2v1h-2zM3 4h2v1h-2zM11 4h2v1h-2zM6 6h4v1h-4zM1 7h2v1h-2zM6 7h4v1h-4zM13 7h2v1h-2zM1 8h2v1h-2zM6 8h4v1h-4zM13 8h2v1h-2zM6 9h4v1h-4zM3 11h2v1h-2zM11 11h2v1h-2zM3 12h2v1h-2zM11 12h2v1h-2zM7 13h2v1h-2zM7 14h2v1h-2z" />
+      </svg>
+      <svg class="theme-toggle__icon theme-toggle__icon--moon" viewBox="0 0 16 16" fill="currentColor"
+        aria-hidden="true">
+        <path
+          d="M3 2h1v1h-1zM2 3h2v1h-2zM1 4h3v1h-3zM1 5h3v1h-3zM1 6h3v1h-3zM1 7h3v1h-3zM1 8h4v1h-4zM1 9h5v1h-5zM1 10h6v1h-6zM2 11h11v1h-11zM3 12h9v1h-9zM4 13h7v1h-7z" />
+      </svg>
+      <svg class="theme-toggle__icon theme-toggle__icon--auto" viewBox="0 0 16 16" fill="currentColor"
+        aria-hidden="true">
+        <path
+          d="M4 1h7v1h-7zM3 2h5v1h-5zM9 2h3v1h-3zM2 3h6v1h-6zM11 3h2v1h-2zM1 4h7v1h-7zM12 4h2v1h-2zM1 5h7v1h-7zM12 5h2v1h-2zM1 6h7v1h-7zM13 6h1v1h-1zM1 7h7v1h-7zM13 7h1v1h-1zM1 8h7v1h-7zM13 8h1v1h-1zM1 9h7v1h-7zM12 9h2v1h-2zM1 10h7v1h-7zM12 10h2v1h-2zM2 11h6v1h-6zM11 11h2v1h-2zM3 12h5v1h-5zM9 12h3v1h-3zM4 13h7v1h-7z" />
+      </svg>
+    </button>
+
+    <ul class="nav__links">
+      <li>
+        <button class="nav__link" data-href-page="main">Home</button>
+      </li>
+
+      <li>
+        <button class="nav__link" data-href-page="about">About</button>
+      </li>
+
+      <li>
+        <button class="nav__link">Projects ▾</button>
+        <ul class="nav__dropdown">
+          <li><button data-href-page="projects">Overview</button></li>
+          <li><button data-href-page="projects.homelab">Homelab</button></li>
+          <li><button data-href-page="games">Minigames</button></li>
+        </ul>
+      </li>
+      <li>
+        <button class="nav__link">Docs ▾</button>
+        <ul class="nav__dropdown">
+          <li><button data-href-page="docs">Overview</button></li>
+        </ul>
+      </li>
+
+      <li>
+        <button class="nav__link" data-href-page="contact">Contact</button>
+      </li>
+
+      <li>
+        <button class="nav__link" data-href-page="connect">Connect</button>
+      </li>
+    </ul>
+  </nav>
+  <main class="content" role="main">
+
+    <!-- ========== MAIN / HOME ========== -->
+    <div class="page" data-page="main">
+      <section class="hero">
+        <h1 class="hero__title">Hi, my <br>name is <b>Aleix</b>.</h1>
+        <p class="hero__subtitle">I build things for the web.</p>
+        <div class="hero__actions">
+          <button class="button" data-href-page="projects">See my work</button>
+          <button class="button button--ghost" data-href-page="about">About me</button>
+        </div>
+      </section>
+    </div>
+
+    <!-- ========== TERMINAL ========== -->
+    <div class="page" data-page="terminal">
+      <section class="hero">
+        <div id="terminal"></div>
+      </section>
+    </div>
+
+    <!-- ========== GAMES ========== -->
+    <div class="page" data-page="games">
+      <section class="section">
+        <div class="container">
+          <h1 class="title">Minigames</h1>
+          <p class="subtitle">A collection of small, fun games you can play right in your browser.</p>
+
+          <div class="projects-grid">
+            <div class="project-card">
+              <div class="project-card__thumb">
+              </div>
+              <div class="project-card__body">
+                <h3>Tic Tac Toe</h3>
+                <p>A short description of this project. What does it do? What stack?</p>
+                <button class="button button--small" data-href-page="games.tictactoe">Play →</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+    </div>
+    <div class="page" data-page="games.tictactoe">
+      <section class="section">
+
+        <h1 class="title">Tic Tac Toe</h1>
+        <p class="subtitle">Play locally with a friend, or challenge the unbeatable bot.</p>
+
+        <div class="container">
+
+          <div class="tictactoe-controls" role="group" aria-label="Game mode">
+            <button class="button button--small is-active" data-mode="pvp" aria-pressed="true">2 Players</button>
+            <button class="button button--small" data-mode="bot" aria-pressed="false">Vs Bot</button>
+            <button class="button button--small button--ghost" data-action="reset">Restart</button>
+          </div>
+
+          <div class="tictactoe-controls" role="group" aria-label="Who starts">
+            <span class="tictactoe-controls__label">First move:</span>
+            <button class="button button--small is-active" data-first="X" aria-pressed="true">X</button>
+            <button class="button button--small" data-first="O" aria-pressed="false">O</button>
+          </div>
+
+          <p class="tictactoe-status muted" data-status aria-live="polite">Turn: X</p>
+
+          <table class="tictactoe" aria-label="Tic tac toe board">
+            <tbody>
+              <tr>
+                <td aria-label="Row 1, Column 1"></td>
+                <td aria-label="Row 1, Column 2"></td>
+                <td aria-label="Row 1, Column 3"></td>
+              </tr>
+              <tr>
+                <td aria-label="Row 2, Column 1"></td>
+                <td aria-label="Row 2, Column 2"></td>
+                <td aria-label="Row 2, Column 3"></td>
+              </tr>
+              <tr>
+                <td aria-label="Row 3, Column 1"></td>
+                <td aria-label="Row 3, Column 2"></td>
+                <td aria-label="Row 3, Column 3"></td>
+              </tr>
+            </tbody>
+          </table>
+
+          <p class="tictactoe-hint muted">Choose who starts. The bot never loses — the best you can do is draw.</p>
+
+        </div>
+      </section>
+    </div>
+
+    <!-- ========== ABOUT ========== -->
+    <div class="page" data-page="about">
+      <section class="section">
+        <div class="container">
+          <h1 class="title">About me</h1>
+
+          <div class="card">
+            <p>Hey! I'm <strong>Aleix</strong>, a developer passionate about clean code, minimal design, and building
+              things that work.</p>
+            <p>Young technology enthusiast who started learning programming languages at an early age. I continue to
+              have the same passion for learning, expanding my knowledge, and developing myself professionally in the
+              technology field.</p>
+          </div>
+
+          <h2>Skills</h2>
+          <div class="tags">
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+            <span class="tag">JavaScript</span>
+
+            <span class="tag">Python</span>
+            <span class="tag">Java</span>
+            <span class="tag">Node.js</span>
+
+            <span class="tag">Git</span>
+            <span class="tag">SQL</span>
+          </div>
+
+          <h2>Experience</h2>
+          <p class="muted">Looking for my first professional opportunity.</p>
+          <!-- <div class="card">
+            <p><strong>Placeholder role</strong> — Company name</p>
+            <p class="muted">2024 – Present</p>
+            <p>Brief description of what you did here. Replace this.</p>
+          </div> -->
+        </div>
+      </section>
+    </div>
+
+    <!-- ========== PROJECTS OVERVIEW ========== -->
+    <div class="page" data-page="projects">
+      <section class="section">
+        <div class="container">
+          <h1 class="title">Projects</h1>
+          <p class="subtitle">Things I've built or contributed to.</p>
+
+          <div class="projects-grid">
+            <div class="project-card">
+              <div class="project-card__thumb"></div>
+              <div class="project-card__body">
+                <h3>Homelab</h3>
+                <p>A personal self-hosted environment built with Linux and Docker, used to experiment with servers,
+                  containers, networking, and multiple services.</p>
+                <div class="tags">
+                  <span class="tag">Linux</span>
+                  <span class="tag">Docker</span>
+                </div>
+                <button class="button button--small" data-href-page="projects.homelab">Read more →</button>
+              </div>
+            </div>
+
+            <div class="project-card">
+              <div class="project-card__thumb"></div>
+              <div class="project-card__body">
+                <h3>Minigames</h3>
+                <p>A collection of small browser-based games built with HTML, CSS, and TypeScript, focused on simple
+                  mechanics and a fun, lightweight experience.</p>
+                <div class="tags">
+                  <span class="tag">HTML</span>
+                  <span class="tag">CSS</span>
+                  <span class="tag">Typescript</span>
+                </div>
+                <button class="button button--small" data-href-page="games">Read more →</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ========== PROJECT DETAILS ========== -->
+    <div class="page" data-page="projects.homelab">
+      <section class="section">
+        <div class="container">
+          <button class="button button--ghost button--back" data-href-page="projects">← Back to projects</button>
+          <h1 class="title">Homelab</h1>
+          <div class="card">
+            <p><strong>Stack:</strong> Linux, Docker</p>
+            <p><strong>Role:</strong> Developer</p>
+            <p><strong>Links:</strong> <a href="#">Live demo</a> · <a href="#">Source code</a></p>
+          </div>
+          <!-- <h2>Overview</h2>
+          <p>Replace this with a detailed description of the project. What problem does it solve? What did you learn?
+            What
+            were the challenges?</p>
+          <h2>Screenshots</h2>
+          <div class="placeholder-image">screenshot placeholder</div> -->
+        </div>
+      </section>
+    </div>
+
+    <!-- ========== DOCS ========== -->
+    <div class="page" data-page="docs">
+      <section class="section">
+        <div class="container">
+          <h1 class="title">Docs</h1>
+          <p class="subtitle">Still under construction — there's nothing here yet. Check back soon!</p>
+          <button class="button" data-href-page="main">Go Home</button>
+        </div>
+      </section>
+    </div>
+
+    <!-- ========== CONTACT ========== -->
+    <div class="page" data-page="contact">
+      <section class="section">
+        <div class="container">
+          <h1 class="title">Contact</h1>
+          <p class="subtitle">Get in touch.</p>
+
+          <div class="card">
+            <p>I'm currently <strong>open to opportunities</strong>. Whether you have a project idea, a question, or
+              just
+              want to say hi — reach out!</p>
+          </div>
+          <h2>Send a message</h2>
+          <form class="contact-form">
+            <label for="name">
+              Name
+              <input id="name" name="name" type="text" placeholder="Your name" autocomplete="name" />
+            </label>
+            <label for="email">
+              Email
+              <input id="email" name="email" type="email" placeholder="you@example.com" autocomplete="email" />
+            </label>
+            <label for="message">
+              Message
+              <textarea id="message" name="message" rows="5" placeholder="What's up?"></textarea>
+            </label>
+            <button class="button" type="submit">
+              Send (placeholder)
+            </button>
+          </form>
+        </div>
+      </section>
+    </div>
+
+    <!-- ========== CONNECT / SOCIALS ========== -->
+    <div class="page" data-page="connect">
+      <section class="section">
+        <div class="container">
+          <h1 class="title">Connect</h1>
+          <p class="subtitle">Find me around the web — pick your platform.</p>
+
+          <div class="social-grid">
+            <a class="social-card" href="https://github.com/aleixmine" target="_blank" rel="noopener noreferrer">
+              <h3>GitHub</h3>
+              <p>github.com/aleixmine</p>
+              <span class="tag">code</span>
+            </a>
+            <a class="social-card" href="https://www.linkedin.com/in/aleixbov" target="_blank"
+              rel="noopener noreferrer">
+              <h3>LinkedIn</h3>
+              <p>linkedin.com/in/aleixbov</p>
+              <span class="tag">professional</span>
+            </a>
+            <a class="social-card" href="https://www.youtube.com/@aleixmine" target="_blank" rel="noopener noreferrer">
+              <h3>YouTube</h3>
+              <p>youtube.com/@aleixmine</p>
+              <span class="tag">video</span>
+            </a>
+            <a class="social-card" href="mailto:aleixdev@proton.me">
+              <h3>Email</h3>
+              <p>aleixdev@proton.me</p>
+              <span class="tag">direct</span>
+            </a>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ========== LOADING ========== -->
+    <div class="page" data-page="internal.loading">
+      <section class="hero">
+        <p class="subtitle">Loading ...</p>
+        <div class="loader">
+          <div class="cube"></div>
+          <div class="cube"></div>
+          <div class="cube"></div>
+          <div class="cube"></div>
+          <div class="cube"></div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ========== 404 ========== -->
+    <div class="page" data-page="internal.404">
+      <section class="section">
+        <div class="container">
+          <h1 class="title">Not found</h1>
+          <p class="subtitle">404!</p>
+          <p>Sorry, but the page you are looking for doesn't exist, has been removed, or the URL may be incorrect.</p>
+          <p>Please check the address and make sure the URL is correct, or return to the homepage to continue browsing.
+          </p>
+          <p>If you reached this page through a link on our website, the link may be outdated or no longer available.
+          </p>
+          <button class="button" data-href-page="main">Go Home</button>
+        </div>
+      </section>
+    </div>
+
+    <noscript>
+      <div class="page page--active" data-page="internal.noscript">
+        <section class="section">
+          <div class="container">
+            <h1 class="title">JavaScript is not enabled!</h1>
+            <p class="subtitle">Enable it to bring this site to life!</p>
+            <a href="/">Back to home</a>
+          </div>
+        </section>
+      </div>
+    </noscript>
+  </main>
+  <footer class="footer" role="contentinfo">
+    <div class="footer__inner">
+      <div class="footer__top">
+        <button class="footer__brand" data-href-page="main">aleixdev</button>
+        <ul class="footer__links">
+          <li><button data-href-page="main">Home</button></li>
+          <li><button data-href-page="about">About</button></li>
+          <li><button data-href-page="projects">Projects</button></li>
+          <li><button data-href-page="contact">Contact</button></li>
+          <li><button data-href-page="connect">Connect</button></li>
+        </ul>
+      </div>
+      <div class="footer__bottom">
+        <p>© 2026 aleixmine — built with TypeScript, Vite & lots of pixels.</p>
+        <ul class="footer__social">
+          <li><a href="https://github.com/aleixmine">GitHub</a></li>
+          <li><a href="https://www.linkedin.com/in/aleixbov">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+</body>

@@ -1,0 +1,1 @@
+Mini web built with TypeScript, Vite & lots of pixels.

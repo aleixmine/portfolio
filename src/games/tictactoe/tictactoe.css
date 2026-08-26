@@ -1,0 +1,208 @@
+.page[data-page="games.tictactoe"] .section {
+  width: 100%;
+}
+
+.page[data-page="games.tictactoe"] .container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.25rem;
+  margin-top: 1rem;
+}
+
+.page[data-page="games.tictactoe"] .title {
+  font-size: 1.8rem;
+  letter-spacing: 0.02em;
+  margin-bottom: 0.25rem;
+}
+
+.tictactoe-hint {
+  font-size: 0.85rem;
+  margin-top: 0.25rem;
+}
+
+/* ===== Controls (mode selector / restart) ===== */
+.tictactoe-controls {
+  display: flex;
+  justify-content: flex-start;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.tictactoe-controls__label {
+  align-self: center;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.tictactoe-controls .button.is-active {
+  background: var(--accent);
+  color: var(--bg);
+  border-color: var(--accent);
+}
+
+.tictactoe-status {
+  min-height: 1.4rem;
+  font-size: 0.95rem;
+}
+
+/* ===== Board ===== */
+.tictactoe {
+  border-collapse: collapse;
+  table-layout: fixed;
+  /* Frame the board like a card (matches .card border / radius of the site) */
+  border-radius: 6px;
+  box-shadow: 0 0 0 1px var(--border), 0 12px 24px -16px rgba(0, 0, 0, 0.35);
+}
+
+.tictactoe td {
+  width: 9rem;
+  height: 9rem;
+  text-align: center;
+  vertical-align: middle;
+  padding: 0;
+  border: 2px solid var(--border);
+  cursor: pointer;
+  user-select: none;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.tictactoe tr:first-child td {
+  border-top: 0;
+}
+
+.tictactoe tr:last-child td {
+  border-bottom: 0;
+}
+
+.tictactoe td:first-child {
+  border-left: 0;
+}
+
+.tictactoe td:last-child {
+  border-right: 0;
+}
+
+.tictactoe td:empty:hover {
+  background: var(--surface);
+}
+
+.mark {
+  position: relative;
+  display: inline-block;
+  width: 4.5rem;
+  height: 4.5rem;
+  vertical-align: middle;
+}
+
+.mark--x::before,
+.mark--x::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 6px;
+  background: var(--accent);
+  border-radius: 0;
+  transform-origin: center;
+}
+
+.mark--x::before {
+  animation: drawLineRotPos 0.22s ease both;
+}
+
+.mark--x::after {
+  animation: drawLineRotNeg 0.22s ease 0.12s both;
+}
+
+@keyframes drawLineRotPos {
+  from {
+    transform: translate(-50%, -50%) rotate(45deg) scaleX(0);
+    opacity: 0;
+  }
+
+  to {
+    transform: translate(-50%, -50%) rotate(45deg) scaleX(1);
+    opacity: 1;
+  }
+}
+
+@keyframes drawLineRotNeg {
+  from {
+    transform: translate(-50%, -50%) rotate(-45deg) scaleX(0);
+    opacity: 0;
+  }
+
+  to {
+    transform: translate(-50%, -50%) rotate(-45deg) scaleX(1);
+    opacity: 1;
+  }
+}
+
+.mark--o {
+  width: 4.2rem;
+  height: 4.2rem;
+  margin: 0.15rem;
+  border: 6px solid var(--accent);
+  border-radius: 0;
+  box-sizing: border-box;
+  clip-path: inset(50% 50% 50% 50%);
+  animation: growSquare 0.28s ease forwards;
+}
+
+@keyframes growSquare {
+  from {
+    clip-path: inset(50% 50% 50% 50%);
+  }
+
+  to {
+    clip-path: inset(0% 0% 0% 0%);
+  }
+}
+
+.tictactoe td.tictactoe__win {
+  background: var(--surface);
+}
+
+.tictactoe td.tictactoe__win .mark--x::before,
+.tictactoe td.tictactoe__win .mark--x::after {
+  background: var(--text-link);
+}
+
+.tictactoe td.tictactoe__win .mark--o {
+  border-color: var(--text-link);
+}
+
+@media (max-width: 640px) {
+  .tictactoe td {
+    width: 5.5rem;
+    height: 5.5rem;
+  }
+
+  .mark {
+    width: 3rem;
+    height: 3rem;
+  }
+
+  .mark--o {
+    width: 2.8rem;
+    height: 2.8rem;
+    border-width: 4px;
+  }
+
+  .mark--x::before,
+  .mark--x::after {
+    height: 4px;
+  }
+
+  .page[data-page="games.tictactoe"] .title {
+    font-size: 1.5rem;
+  }
+
+  .tictactoe-controls .button {
+    width: auto;
+  }
+}

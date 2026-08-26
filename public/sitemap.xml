@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+    <url>
+        <loc>https://aleixmine.github.io/</loc>
+    </url>
+
+    <url>
+        <loc>https://aleixmine.github.io/about</loc>
+    </url>
+
+    <url>
+        <loc>https://aleixmine.github.io/projects/</loc>
+    </url>
+
+    <url>
+        <loc>https://aleixmine.github.io/projects/homelab</loc>
+    </url>
+
+    <url>
+        <loc>https://aleixmine.github.io/games</loc>
+    </url>
+
+    <url>
+        <loc>https://aleixmine.github.io/games/tictactoe</loc>
+    </url>
+
+    <url>
+        <loc>https://aleixmine.github.io/docs/about</loc>
+    </url>
+
+    <url>
+        <loc>https://aleixmine.github.io/contact</loc>
+    </url>
+
+    <url>
+        <loc>https://aleixmine.github.io/connect</loc>
+    </url>
+
+</urlset>
